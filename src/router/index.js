@@ -1,19 +1,50 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import Home from '../views/Home.vue'
+import Ejercicio1 from '../views/Ejercicio1.vue'
+import Ejercicio2 from '../views/Ejercicio2.vue'
+import Ejercicio3 from '../views/Ejercicio3.vue'
+import Ejercicio4 from '../views/Ejercicio4.vue'
+import Ejercicio5 from '../views/Ejercicio5.vue'
+import Ejercicio6 from '../views/Ejercicio6.vue'
+import Ejercicio7 from '../views/Ejercicio7.vue'
+import Estudiante from '../views/Estudiante.vue'
 
 const routes = [
   {
     path: '/',
-    name: 'home',
-    component: HomeView
+    component: Home
   },
   {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
+    path: '/ejercicio1',
+    component: Ejercicio1
+  },
+  {
+    path: '/ejercicio2',
+    component: Ejercicio2
+  },
+  {
+    path: '/ejercicio3',
+    component: Ejercicio3
+  },
+  {
+    path: '/ejercicio4',
+    component: Ejercicio4
+  },
+  {
+    path: '/ejercicio5',
+    component: Ejercicio5
+  },
+  {
+    path: '/ejercicio6',
+    component: Ejercicio6
+  },
+  {
+    path: '/ejercicio7',
+    component: Ejercicio7
+  },
+  {
+    path: '/estudiante',
+    component: Estudiante
   }
 ]
 
