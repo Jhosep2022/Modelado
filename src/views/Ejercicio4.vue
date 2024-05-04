@@ -1,50 +1,60 @@
 <template>
   <div>
-      <h1>Ejercicio 4</h1>
-      <div class="flex-container">
-          <Fieldset legend="Enunciado del Ejercicio 4">
-              <p>
-                  Desarrollar el diagrama de flujo para el siguiente juego de datos: el apostador lanza 2 dados y si saca 7 en la suma de los dos dados gana 5 Bs. De otra manera pierde 2 Bs. Simular el juego y determinar cuanto habra acumulado el apostador luego de los lanzamientos.
-              </p>
-          </Fieldset>
-          <div class="controls">
-              <label for="gamesCount">Número de juegos:</label>
-              <input type="number" v-model="gamesCount" id="gamesCount" min="1">
-              <button @click="simulateGame">Simular Juego</button>
-          </div>
-      </div>
-      <Fieldset v-if="results.length" legend="Resultados" class="results-container">
-          <div class="summary">
-              <p><strong>Ganó la mesa:</strong> {{ houseWins }} veces</p>
-              <p><strong>Ganó el apostador:</strong> {{ playerWins }} veces</p>
-              <p><strong>Ingreso total de la mesa:</strong> {{ totalHouseGain }} Bs.</p>
-          </div>
-          <table>
-              <thead>
-                  <tr>
-                      <th>Lanzamiento</th>
-                      <th>Dado 1</th>
-                      <th>Dado 2</th>
-                      <th>Suma</th>
-                      <th>Ganancia/Pérdida</th>
-                      <th>Total Acumulado</th>
-                  </tr>
-              </thead>
-              <tbody>
-                  <tr v-for="(result, index) in results" :key="index">
-                      <td>{{ index + 1 }}</td>
-                      <td>{{ result.die1 }}</td>
-                      <td>{{ result.die2 }}</td>
-                      <td>{{ result.sum }}</td>
-                      <td>{{ result.gain }}</td>
-                      <td>{{ result.total }}</td>
-                  </tr>
-              </tbody>
-          </table>
+    <h1>Ejercicio 4</h1>
+    <div class="flex-container">
+      <Fieldset legend="Enunciado del Ejercicio 4">
+        <p>
+          Desarrollar el diagrama de flujo para el siguiente juego de datos: el apostador lanza 2 dados y si saca 7 en la suma de los dos dados gana 5 Bs. De otra manera pierde 2 Bs. Simular el juego y determinar cuanto habrá acumulado el apostador luego de los lanzamientos.
+        </p>
       </Fieldset>
+      <div class="controls">
+        <label for="gamesCount">Número de juegos:</label>
+        <input type="number" v-model="gamesCount" id="gamesCount" min="1">
+        <button @click="simulateGame">Simular Juego</button>
+      </div>
+    </div>
+    <Fieldset v-if="results.length" legend="Resultados" class="results-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Lanzamiento</th>
+            <th>Dado 1</th>
+            <th>Dado 2</th>
+            <th>Suma</th>
+            <th>Ganancia/Pérdida</th>
+            <th>Total Acumulado</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="(result, index) in results" :key="index">
+            <td>{{ index + 1 }}</td>
+            <td>{{ result.die1 }}</td>
+            <td>{{ result.die2 }}</td>
+            <td>{{ result.sum }}</td>
+            <td>{{ result.gain }}</td>
+            <td>{{ result.total }}</td>
+          </tr>
+        </tbody>
+      </table>
+      <table>
+        <thead>
+          <tr>
+            <th>Total de Juegos</th>
+            <th>Juegos Ganados por la Casa</th>
+            <th>Porcentaje Ganado por la Casa</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{ gamesCount }}</td>
+            <td>{{ houseWins }}</td>
+            <td>{{ houseWinPercentage }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </Fieldset>
   </div>
 </template>
-
 <script>
 import Fieldset from '../components/CardProblem.vue';
 
@@ -67,6 +77,12 @@ export default {
     },
     totalHouseGain() {
       return (this.houseWins * 2) + (this.playerWins * -5);
+    },
+    houseWinPercentage() {
+      if (this.gamesCount > 0) {
+        return (this.houseWins / this.gamesCount * 100).toFixed(2) + '%';
+      }
+      return '0%';
     }
   },
   methods: {

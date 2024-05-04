@@ -11,6 +11,7 @@
 		  <li><router-link to="/ejercicio5">ejercicio 5</router-link></li>
 		  <li><router-link to="/ejercicio6">ejercicio 6</router-link></li>
 		  <li><router-link to="/ejercicio7">ejercicio 7</router-link></li>
+      <li><router-link to="/ejercicio8">ejercicio 8</router-link></li>
 		</ul>
 	  </li>
 	  <li><router-link to="/estudiante">Estudiante</router-link></li>

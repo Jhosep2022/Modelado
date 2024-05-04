@@ -3,8 +3,8 @@
     <div class="profile-image">
       <img src="../assets/perfile.jpeg" />
     </div>
-    <h2 class="profile-username">Jose Amadeo Condori Ramos</h2>
-    <small class="profile-user-handle">@Jose_Amadeo</small>
+    <h2 class="profile-username">Bernardo Duran</h2>
+    <small class="profile-user-handle">@Bernardi</small>
       
   </article>
 </template>

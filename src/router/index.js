@@ -7,6 +7,7 @@ import Ejercicio4 from '../views/Ejercicio4.vue'
 import Ejercicio5 from '../views/Ejercicio5.vue'
 import Ejercicio6 from '../views/Ejercicio6.vue'
 import Ejercicio7 from '../views/Ejercicio7.vue'
+import Ejercicio8 from '../views/Ejercicio8.vue'
 import Estudiante from '../views/Estudiante.vue'
 
 const routes = [
@@ -32,7 +33,7 @@ const routes = [
   },
   {
     path: '/ejercicio5',
-    component: Ejercicio5
+    component: Ejercicio7
   },
   {
     path: '/ejercicio6',
@@ -40,12 +41,18 @@ const routes = [
   },
   {
     path: '/ejercicio7',
-    component: Ejercicio7
+    component: Ejercicio5
   },
   {
     path: '/estudiante',
     component: Estudiante
+  },
+  {
+    path: '/ejercicio8',
+    component: Ejercicio8
+  
   }
+
 ]
 
 const router = createRouter({
